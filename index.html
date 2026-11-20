@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <!-- ===================== 基礎中繼資料 ===================== -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b1020">
+  <meta name="color-scheme" content="dark">
+  <title>幸運 777 老虎機｜免安裝輕量級 HTML5 線上老虎機遊戲</title>
+  <meta name="description" content="幸運 777 是一款免安裝、免註冊的輕量級 HTML5 老虎機遊戲。純前端 Canvas 渲染、三軸單賠線、支援手機觸控與鍵盤操作，開啟網頁即可試玩。提供完整玩法說明、賠率表與常見問題。">
+  <meta name="keywords" content="老虎機,線上老虎機,HTML5遊戲,Canvas遊戲,免安裝遊戲,777,slots,休閒博弈,靜態遊戲,開源遊戲">
+  <meta name="author" content="幸運 777 開發團隊">
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+  <meta name="googlebot" content="index,follow">
+  <link rel="canonical" href="https://vip-4.github.io/lucky-777-slots/">
+  <link rel="alternate" hreflang="zh-Hant" href="https://vip-4.github.io/lucky-777-slots/">
+  <link rel="alternate" hreflang="x-default" href="https://vip-4.github.io/lucky-777-slots/">
+
+  <!-- ===================== Open Graph（Facebook / LINE / Discord） ===================== -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="幸運 777">
+  <meta property="og:locale" content="zh_TW">
+  <meta property="og:title" content="幸運 777 老虎機｜免安裝輕量級 HTML5 線上老虎機遊戲">
+  <meta property="og:description" content="開啟網頁就能玩的三軸老虎機。零依賴、支援手機與桌機、內建賠率表與無障礙操作。">
+  <meta property="og:url" content="https://vip-4.github.io/lucky-777-slots/">
+  <meta property="og:image" content="https://vip-4.github.io/lucky-777-slots/assets/og-image.jpg">
+  <meta property="og:image:secure_url" content="https://vip-4.github.io/lucky-777-slots/assets/og-image.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="幸運 777 老虎機遊戲畫面，三個轉輪搭配金色主題">
+
+  <!-- ===================== Twitter / X Card ===================== -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="幸運 777 老虎機｜免安裝輕量級 HTML5 線上老虎機遊戲">
+  <meta name="twitter:description" content="開啟網頁就能玩的三軸老虎機。零依賴、支援手機與桌機、內建賠率表與無障礙操作。">
+  <meta name="twitter:image" content="https://vip-4.github.io/lucky-777-slots/assets/og-image.jpg">
+  <meta name="twitter:image:alt" content="幸運 777 老虎機遊戲畫面，三個轉輪搭配金色主題">
+
+  <!-- ===================== 結構化資料（GEO：供 AI 摘要與引用） ===================== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://vip-4.github.io/lucky-777-slots/#organization",
+        "name": "幸運 777 開發團隊",
+        "url": "https://vip-4.github.io/lucky-777-slots/"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://vip-4.github.io/lucky-777-slots/#website",
+        "url": "https://vip-4.github.io/lucky-777-slots/",
+        "name": "幸運 777",
+        "inLanguage": "zh-Hant",
+        "publisher": { "@id": "https://vip-4.github.io/lucky-777-slots/#organization" }
+      },
+      {
+        "@type": "VideoGame",
+        "@id": "https://vip-4.github.io/lucky-777-slots/#game",
+        "name": "幸運 777 老虎機",
+        "alternateName": "Lucky 777 Slots",
+        "description": "一款以 HTML5 Canvas 打造的輕量級三軸老虎機遊戲，採單賠線結算，使用虛擬代幣，僅供娛樂演示。",
+        "url": "https://vip-4.github.io/lucky-777-slots/",
+        "inLanguage": "zh-Hant",
+        "genre": ["Casual", "Casino"],
+        "applicationCategory": "GameApplication",
+        "operatingSystem": "任何支援 HTML5 的瀏覽器",
+        "browserRequirements": "需支援 Canvas 2D 與 ES2015",
+        "isAccessibleForFree": true,
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "publisher": { "@id": "https://vip-4.github.io/lucky-777-slots/#organization" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://vip-4.github.io/lucky-777-slots/#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "首頁", "item": "https://vip-4.github.io/lucky-777-slots/" },
+          { "@type": "ListItem", "position": 2, "name": "老虎機試玩", "item": "https://vip-4.github.io/lucky-777-slots/#game" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://vip-4.github.io/lucky-777-slots/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "什麼是幸運 777 老虎機？",
+            "acceptedAnswer": { "@type": "Answer", "text": "幸運 777 是一款以 HTML5 Canvas 開發的輕量級三軸老虎機遊戲，採單賠線結算，使用虛擬代幣，可直接在瀏覽器中試玩，無需下載或安裝。" }
+          },
+          {
+            "@type": "Question",
+            "name": "要怎麼玩這款老虎機遊戲？",
+            "acceptedAnswer": { "@type": "Answer", "text": "先選擇 1、5、10 或 25 的投注額，再按下「旋轉」按鈕。三個轉輪停止後，若中間賠線出現符合賠率表的組合即為中獎，獎金會自動加到代幣餘額。鍵盤使用者可按空白鍵或 Enter 旋轉。" }
+          },
+          {
+            "@type": "Question",
+            "name": "這款遊戲需要註冊或付款嗎？",
+            "acceptedAnswer": { "@type": "Answer", "text": "不需要。幸運 777 完全免費，沒有註冊、登入或真實金流機制，代幣僅存在於本機瀏覽器中，僅供娛樂演示。" }
+          },
+          {
+            "@type": "Question",
+            "name": "遊戲的 RTP（玩家回報率）是多少？",
+            "acceptedAnswer": { "@type": "Answer", "text": "此演示版本使用瀏覽器端的加權隨機數產生器，並非經認證的 RTP 模型，不能作為真實博弈參考。正式商業版本應由伺服器端 RNG 決定結果並公開經稽核的 RTP 數值。" }
+          },
+          {
+            "@type": "Question",
+            "name": "可以在手機上玩嗎？",
+            "acceptedAnswer": { "@type": "Answer", "text": "可以。遊戲採用響應式 Canvas 與觸控事件，自動適應直屏與橫屏，並針對高 DPI 螢幕做像素比校正，在手機與平板皆可流暢運行。" }
+          },
+          {
+            "@type": "Question",
+            "name": "這款遊戲可以架設在靜態託管平台嗎？",
+            "acceptedAnswer": { "@type": "Answer", "text": "可以。整個遊戲只有純 HTML、CSS 與 JavaScript，沒有伺服器端套件或建置步驟，可直接部署到 Cloudflare Pages、Netlify、Vercel、GitHub Pages 或任何靜態檔案伺服器。" }
+          },
+          {
+            "@type": "Question",
+            "name": "斷線或重新整理後，代幣會不見嗎？",
+            "acceptedAnswer": { "@type": "Answer", "text": "不會。餘額與最高紀錄會透過 localStorage 儲存在本機瀏覽器；清除瀏覽器資料或使用無痕模式則會重設為初始代幣。" }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- ===================== 樣式與 PWA ===================== -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="apple-touch-icon" href="assets/og-image.jpg">
+</head>
+<body>
+  <!-- 無障礙：跳過導覽連結 -->
+  <a class="skip-link" href="#main">跳至主要內容</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top" aria-label="幸運 777 首頁">
+        <span class="brand-mark" aria-hidden="true">777</span>
+        <span class="brand-name">幸運 777</span>
+      </a>
+      <nav class="site-nav" aria-label="主要導覽">
+        <a href="#game">立即試玩</a>
+        <a href="#how-to">玩法說明</a>
+        <a href="#paytable">賠率表</a>
+        <a href="#faq">常見問題</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ========== 首屏：核心關鍵字與價值主張 ========== -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="wrap hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">HTML5 CANVAS · 零依賴 · 即開即玩</p>
+          <h1 id="hero-title">幸運 777 老虎機</h1>
+          <p class="hero-lead">一款輕量級三軸單賠線老虎機遊戲。免安裝、免註冊，支援手機觸控與鍵盤操作，開啟網頁即可試玩。</p>
+          <p class="hero-sub">全程使用虛擬代幣，僅供娛樂演示，不涉及任何真實金錢交易。</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#game">開始試玩</a>
+            <a class="btn btn-ghost" href="#how-to">查看玩法</a>
+          </div>
+          <ul class="hero-badges" aria-label="遊戲特色">
+            <li>免安裝</li>
+            <li>60 FPS</li>
+            <li>無障礙支援</li>
+            <li>靜態託管</li>
+          </ul>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="art-reel">7</div>
+          <div class="art-reel">7</div>
+          <div class="art-reel">7</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 遊戲本體 ========== -->
+    <section class="section" id="game" aria-labelledby="game-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="game-title">立即試玩</h2>
+          <p>選擇投注額後按下旋轉。三個轉輪停止時，若中間一列出現賠率表中的組合即為中獎。</p>
+        </div>
+
+        <figure class="machine">
+          <div class="machine-top">
+            <span class="machine-brand">LUCKY 777</span>
+            <span class="machine-status" id="game-status" role="status">準備就緒</span>
+          </div>
+
+          <div class="reel-window">
+            <canvas id="slot-canvas" width="600" height="240"
+                    role="img"
+                    aria-label="三軸老虎機轉輪顯示區，開獎結果會以文字播報於下方狀態列"></canvas>
+          </div>
+
+          <!-- 重要結果透過 live region 播報給螢幕閱讀器 -->
+          <p class="result-line" id="result-line" aria-live="polite" aria-atomic="true">按下「旋轉」開始遊戲。</p>
+
+          <div class="hud" aria-label="遊戲資訊">
+            <div class="hud-item"><span class="hud-label">代幣餘額</span><strong id="stat-credits">1,000</strong></div>
+            <div class="hud-item"><span class="hud-label">目前投注</span><strong id="stat-bet">10</strong></div>
+            <div class="hud-item"><span class="hud-label">上次贏得</span><strong id="stat-last">0</strong></div>
+            <div class="hud-item"><span class="hud-label">最高中獎</span><strong id="stat-best">0</strong></div>
+          </div>
+
+          <div class="controls">
+            <fieldset class="bet-group">
+              <legend>投注額</legend>
+              <div class="bet-options" id="bet-options">
+                <label><input type="radio" name="bet" value="1"><span>1</span></label>
+                <label><input type="radio" name="bet" value="5"><span>5</span></label>
+                <label><input type="radio" name="bet" value="10" checked><span>10</span></label>
+                <label><input type="radio" name="bet" value="25"><span>25</span></label>
+              </div>
+            </fieldset>
+            <div class="action-group">
+              <button type="button" class="btn btn-primary btn-spin" id="spin-btn">旋轉 <span aria-hidden="true">▶</span></button>
+              <button type="button" class="btn btn-ghost" id="auto-btn" aria-pressed="false">自動旋轉</button>
+              <button type="button" class="btn btn-ghost" id="sound-btn" aria-pressed="true" aria-label="切換音效">音效：開</button>
+              <button type="button" class="btn btn-ghost" id="reset-btn">重置</button>
+            </div>
+          </div>
+          <p class="machine-hint">提示：鍵盤可按 <kbd>空白鍵</kbd> 或 <kbd>Enter</kbd> 旋轉。</p>
+          <figcaption class="sr-only">幸運 777 三軸老虎機試玩區，使用虛擬代幣，不涉及真實金錢。</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ========== 玩法說明：條列式，利於搜尋引擎與 AI 擷取 ========== -->
+    <section class="section section-alt" id="how-to" aria-labelledby="how-to-title">
+      <div class="wrap narrow">
+        <div class="section-head">
+          <p class="eyebrow">HOW TO PLAY</p>
+          <h2 id="how-to-title">如何玩幸運 777 老虎機</h2>
+        </div>
+        <ol class="steps">
+          <li><strong>選擇投注額。</strong>可選 1、5、10 或 25 代幣，投注額越高，中獎時的倍數報酬越大。</li>
+          <li><strong>啟動旋轉。</strong>按下「旋轉」按鈕，或按鍵盤空白鍵 / Enter。每次旋轉會先扣除所選投注額。</li>
+          <li><strong>等待轉輪停止。</strong>三個轉輪由上而下依序減速停止，中間一列即為結算賠線。</li>
+          <li><strong>自動結算。</strong>若三格符號符合賠率表，獎金會自動計入代幣餘額，並顯示中獎動畫。</li>
+          <li><strong>設定自動旋轉。</strong>可開啟自動模式連續旋轉，再按一次即可停止。</li>
+        </ol>
+        <aside class="note" role="note">
+          <strong>僅供娛樂：</strong>本遊戲使用虛擬代幣，不提供現金兌換或任何真實賭博功能。若您未滿當地法定年齡，請勿使用。
+        </aside>
+      </div>
+    </section>
+
+    <!-- ========== 賠率表：表格化，GEO 友善 ========== -->
+    <section class="section" id="paytable" aria-labelledby="paytable-title">
+      <div class="wrap narrow">
+        <div class="section-head">
+          <p class="eyebrow">PAYTABLE</p>
+          <h2 id="paytable-title">幸運 777 賠率表</h2>
+          <p>結算方式為單賠線（中間列），獎金 = 投注額 × 賠率倍數。</p>
+        </div>
+        <div class="table-scroll">
+          <table class="paytable">
+            <caption class="sr-only">三軸老虎機中獎組合與賠率倍數對照表</caption>
+            <thead>
+              <tr><th scope="col">中獎組合</th><th scope="col">符號</th><th scope="col">賠率倍數</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">三個 7</th><td>7 · 7 · 7</td><td data-label="賠率倍數">100×</td></tr>
+              <tr><th scope="row">三個鑽石</th><td>◆ · ◆ · ◆</td><td data-label="賠率倍數">50×</td></tr>
+              <tr><th scope="row">三顆星星</th><td>★ · ★ · ★</td><td data-label="賠率倍數">25×</td></tr>
+              <tr><th scope="row">三個鈴鐺</th><td>♬ · ♬ · ♬</td><td data-label="賠率倍數">12×</td></tr>
+              <tr><th scope="row">三顆櫻桃</th><td>● · ● · ●</td><td data-label="賠率倍數">8×</td></tr>
+              <tr><th scope="row">任意兩個 7</th><td>7 · 7 · 其他</td><td data-label="賠率倍數">5×</td></tr>
+              <tr><th scope="row">任意兩顆櫻桃</th><td>● · ● · 其他</td><td data-label="賠率倍數">3×</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 技術與公平性說明（GEO：可被 AI 引用的結構化事實） ========== -->
+    <section class="section section-alt" id="technology" aria-labelledby="technology-title">
+      <div class="wrap narrow">
+        <div class="section-head">
+          <p class="eyebrow">TECHNOLOGY &amp; FAIRNESS</p>
+          <h2 id="technology-title">技術架構與公平性說明</h2>
+        </div>
+        <div class="prose">
+          <h3>Client 與 Server 分離</h3>
+          <p>本演示版本為了達成零後端、可靜態託管的目標，開獎結果由瀏覽器端的加權隨機數產生器決定。正式商業博弈系統必須將 RNG、下注與結算邏輯放在伺服器端，客戶端僅負責動畫表現，避免結果被竄改。</p>
+          <h3>RTP 與隨機性</h3>
+          <p>RTP（Return to Player，玩家回報率）是長期期望值，並非短期保證。演示版的符號權重僅用於呈現動畫，不代表任何經稽核的 RTP 數值。上線前應由第三方單位驗證 RNG 與 RTP，並在法律許可地區取得相應執照。</p>
+          <h3>效能與相容性</h3>
+          <p>遊戲使用 Canvas 2D 渲染管線、requestAnimationFrame 更新迴圈與物件池管理粒子效果，並在分頁隱藏時暫停動畫。針對高 DPI 螢幕做像素比校正，上限設定為 2，兼顧清晰度與低端裝置效能。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FAQ：可見內容與 JSON-LD 完全一致（GEO 關鍵） ========== -->
+    <section class="section" id="faq" aria-labelledby="faq-title">
+      <div class="wrap narrow">
+        <div class="section-head">
+          <p class="eyebrow">FAQ</p>
+          <h2 id="faq-title">常見問題</h2>
+        </div>
+        <div class="faq-list">
+          <article class="faq-item">
+            <h3>什麼是幸運 777 老虎機？</h3>
+            <p>幸運 777 是一款以 HTML5 Canvas 開發的輕量級三軸老虎機遊戲，採單賠線結算，使用虛擬代幣，可直接在瀏覽器中試玩，無需下載或安裝。</p>
+          </article>
+          <article class="faq-item">
+            <h3>要怎麼玩這款老虎機遊戲？</h3>
+            <p>先選擇 1、5、10 或 25 的投注額，再按下「旋轉」按鈕。三個轉輪停止後，若中間賠線出現符合賠率表的組合即為中獎，獎金會自動加到代幣餘額。鍵盤使用者可按空白鍵或 Enter 旋轉。</p>
+          </article>
+          <article class="faq-item">
+            <h3>這款遊戲需要註冊或付款嗎？</h3>
+            <p>不需要。幸運 777 完全免費，沒有註冊、登入或真實金流機制，代幣僅存在於本機瀏覽器中，僅供娛樂演示。</p>
+          </article>
+          <article class="faq-item">
+            <h3>遊戲的 RTP（玩家回報率）是多少？</h3>
+            <p>此演示版本使用瀏覽器端的加權隨機數產生器，並非經認證的 RTP 模型，不能作為真實博弈參考。正式商業版本應由伺服器端 RNG 決定結果並公開經稽核的 RTP 數值。</p>
+          </article>
+          <article class="faq-item">
+            <h3>可以在手機上玩嗎？</h3>
+            <p>可以。遊戲採用響應式 Canvas 與觸控事件，自動適應直屏與橫屏，並針對高 DPI 螢幕做像素比校正，在手機與平板皆可流暢運行。</p>
+          </article>
+          <article class="faq-item">
+            <h3>這款遊戲可以架設在靜態託管平台嗎？</h3>
+            <p>可以。整個遊戲只有純 HTML、CSS 與 JavaScript，沒有伺服器端套件或建置步驟，可直接部署到 Cloudflare Pages、Netlify、Vercel、GitHub Pages 或任何靜態檔案伺服器。</p>
+          </article>
+          <article class="faq-item">
+            <h3>斷線或重新整理後，代幣會不見嗎？</h3>
+            <p>不會。餘額與最高紀錄會透過 localStorage 儲存在本機瀏覽器；清除瀏覽器資料或使用無痕模式則會重設為初始代幣。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div>
+        <strong>幸運 777</strong>
+        <p>輕量級 HTML5 老虎機演示 · 僅供娛樂，不涉及真實金錢。</p>
+      </div>
+      <nav aria-label="頁尾導覽">
+        <a href="#game">試玩</a>
+        <a href="#paytable">賠率</a>
+        <a href="#faq">FAQ</a>
+        <a href="llms.txt">llms.txt</a>
+      </nav>
+      <p class="copyright">© <span id="year">2026</span> 幸運 777 開發團隊</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/game.js" defer></script>
+</body>
+</html>
