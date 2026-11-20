@@ -2,7 +2,7 @@
 
 一款**零依賴、無建置步驟**的輕量級 HTML5 老虎機演示遊戲，附完整 SEO / GEO 優化，可直接部署到任意靜態託管平台。
 
-**正式環境**：https://vip-4.github.io/lucky-777-slots/ （GitHub Pages，已上線）
+**正式環境**：https://lucky-777-slots.pages.dev/ （Cloudflare Pages，已上線）
 
 ### 以 Maton 自動部署
 
@@ -48,7 +48,7 @@ python -m http.server 8080
 
 ## 部署
 
-上線前**務必**把以下檔案中的 `https://vip-4.github.io/lucky-777-slots` 換成你的正式網域：
+上線前**務必**把以下檔案中的 `https://lucky-777-slots.pages.dev` 換成你的正式網域：
 
 - `index.html`（canonical、og:url、og:image、JSON-LD @id）
 - `sitemap.xml`
