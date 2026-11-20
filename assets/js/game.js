@@ -422,49 +422,79 @@
    * 繪圖
    * ==================================================================== */
 
-  function roundRect(x, y, w, h, r) {
+  function roundRectOn(g, x, y, w, h, r) {
     const rr = Math.min(r, w / 2, h / 2);
-    ctx.beginPath();
-    ctx.moveTo(x + rr, y);
-    ctx.arcTo(x + w, y, x + w, y + h, rr);
-    ctx.arcTo(x + w, y + h, x, y + h, rr);
-    ctx.arcTo(x, y + h, x, y, rr);
-    ctx.arcTo(x, y, x + w, y, rr);
-    ctx.closePath();
+    g.beginPath();
+    g.moveTo(x + rr, y);
+    g.arcTo(x + w, y, x + w, y + h, rr);
+    g.arcTo(x + w, y + h, x, y + h, rr);
+    g.arcTo(x, y + h, x, y, rr);
+    g.arcTo(x, y, x + w, y, rr);
+    g.closePath();
   }
 
-  function drawSymbol(symbol, cx, cy, blur) {
-    const size = 62;
-    ctx.save();
-    if (blur > 0.2) {
-      // 以低成本的位移疊影模擬動態模糊，避免 ctx.filter 的相容性與效能問題
-      ctx.globalAlpha = 0.25;
-      for (let k = -1; k <= 1; k += 2) {
-        ctx.fillStyle = symbol.color;
-        ctx.font = '900 ' + size + 'px system-ui, sans-serif';
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'middle';
-        ctx.fillText(symbol.glyph, cx, cy + k * blur);
-      }
-      ctx.globalAlpha = 1;
+  function roundRect(x, y, w, h, r) { roundRectOn(ctx, x, y, w, h, r); }
+
+  /* ----------------------------------------------------------------------
+   * 精靈圖集（借鏡 Mindustry 的 sprite packing）
+   * ----------------------------------------------------------------------
+   * 原本每幀要為每個符號重新建立漸層、roundRect 路徑、shadowBlur 與 fillText，
+   * 在 3 軸 × 5 個可見符號下最高可達 90 次/幀，低端手機容易掉幀。
+   * 這裡在初始化時把 6 種符號各畫一次到離屏 canvas，之後只做 drawImage。
+   */
+  const SYMBOL_SIZE = 64;
+  const symbolAtlas = [];
+  let reelFade = null;
+
+  function buildSymbolAtlas() {
+    symbolAtlas.length = 0;
+    for (let i = 0; i < SYMBOLS.length; i += 1) {
+      const sprite = document.createElement('canvas');
+      sprite.width = SYMBOL_SIZE;
+      sprite.height = SYMBOL_SIZE;
+      const g = sprite.getContext('2d');
+      const s = SYMBOLS[i];
+
+      const grad = g.createLinearGradient(0, 0, SYMBOL_SIZE, SYMBOL_SIZE);
+      grad.addColorStop(0, '#ffffff');
+      grad.addColorStop(1, '#e6e2d6');
+      g.fillStyle = grad;
+      roundRectOn(g, 1, 1, SYMBOL_SIZE - 2, SYMBOL_SIZE - 2, 10);
+      g.fill();
+
+      g.shadowColor = s.color;
+      g.shadowBlur = 12;
+      g.fillStyle = s.color;
+      g.font = '900 46px system-ui, sans-serif';
+      g.textAlign = 'center';
+      g.textBaseline = 'middle';
+      g.fillText(s.glyph, SYMBOL_SIZE / 2, SYMBOL_SIZE / 2 + 2);
+      symbolAtlas.push(sprite);
     }
 
-    const grad = ctx.createLinearGradient(cx - size / 2, cy - size / 2, cx + size / 2, cy + size / 2);
-    grad.addColorStop(0, '#ffffff');
-    grad.addColorStop(1, '#e6e2d6');
-    ctx.fillStyle = grad;
-    roundRect(cx - size / 2, cy - size / 2, size, size, 10);
-    ctx.fill();
+    // 上下遮罩漸層只跟畫布高度有關，建立一次即可
+    reelFade = ctx.createLinearGradient(0, 0, 0, LOGICAL_H);
+    reelFade.addColorStop(0, 'rgba(7,11,22,0.92)');
+    reelFade.addColorStop(0.32, 'rgba(7,11,22,0)');
+    reelFade.addColorStop(0.68, 'rgba(7,11,22,0)');
+    reelFade.addColorStop(1, 'rgba(7,11,22,0.92)');
+  }
 
-    ctx.shadowColor = symbol.color;
-    ctx.shadowBlur = 14;
-    ctx.fillStyle = symbol.color;
-    ctx.font = '900 ' + size + 'px system-ui, sans-serif';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.fillText(symbol.glyph, cx, cy + 2);
-    ctx.shadowBlur = 0;
-    ctx.restore();
+  function drawSymbol(index, cx, cy, blur) {
+    const sprite = symbolAtlas[index];
+    if (!sprite) return;
+    const drawSize = 62;
+    const half = drawSize / 2;
+
+    // 動態模糊：直接疊印位移過的圖集影像，不再重新繪製字形
+    if (blur > 0.2) {
+      ctx.save();
+      ctx.globalAlpha = 0.25;
+      ctx.drawImage(sprite, cx - half, cy - half + blur, drawSize, drawSize);
+      ctx.drawImage(sprite, cx - half, cy - half - blur, drawSize, drawSize);
+      ctx.restore();
+    }
+    ctx.drawImage(sprite, cx - half, cy - half, drawSize, drawSize);
   }
 
   function draw() {
@@ -494,16 +524,11 @@
       for (let k = base - 2; k <= base + 2; k += 1) {
         const y = LOGICAL_H / 2 + (k - reel.pos) * CELL_H;
         if (y < -CELL_H || y > LOGICAL_H + CELL_H) continue;
-        drawSymbol(SYMBOLS[modulo(k, N)], x0 + REEL_W / 2, y, reel.blur);
+        drawSymbol(modulo(k, N), x0 + REEL_W / 2, y, reel.blur);
       }
 
-      // 上下漸層遮罩，增加深度感
-      const fade = ctx.createLinearGradient(0, 0, 0, LOGICAL_H);
-      fade.addColorStop(0, 'rgba(7,11,22,0.92)');
-      fade.addColorStop(0.32, 'rgba(7,11,22,0)');
-      fade.addColorStop(0.68, 'rgba(7,11,22,0)');
-      fade.addColorStop(1, 'rgba(7,11,22,0.92)');
-      ctx.fillStyle = fade;
+      // 上下漸層遮罩：使用預建立好的漸層，避免每軸每幀重建
+      ctx.fillStyle = reelFade;
       ctx.fillRect(x0, 0, REEL_W, LOGICAL_H);
       ctx.restore();
 
@@ -681,6 +706,7 @@
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
   setupCanvas();
+  buildSymbolAtlas();
   updateHud();
   draw();
   startLoop();
