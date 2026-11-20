@@ -23,4 +23,4 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
-Sitemap: https://vip-4.github.io/lucky-777-slots/sitemap.xml
+Sitemap: https://lucky-777-slots.pages.dev/sitemap.xml
