@@ -2,6 +2,21 @@
 
 一款**零依賴、無建置步驟**的輕量級 HTML5 老虎機演示遊戲，附完整 SEO / GEO 優化，可直接部署到任意靜態託管平台。
 
+**正式環境**：https://vip-4.github.io/lucky-777-slots/ （GitHub Pages，已上線）
+
+### 以 Maton 自動部署
+
+`scripts/deploy_maton.ps1` 會透過 Maton 的 GitHub 連線自動建立 repo、逐一上傳檔案並啟用 GitHub Pages：
+
+```powershell
+$env:MATON_API_KEY='你的_Maton_金鑰'
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/deploy_maton.ps1
+```
+
+- 金鑰**只從環境變數讀取**，不會寫入指令碼或 repo。
+- 部署流程：建立 `vip-4/lucky-777-slots` → 上傳 15 個檔案 → 啟用 Pages（legacy / `main`）。
+- 若 repo 已存在會直接更新檔案（自動帶入 sha），可重複執行。
+
 ## 目錄結構
 
 ```
