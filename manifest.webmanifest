@@ -1,0 +1,26 @@
+{
+  "name": "幸運 777 老虎機",
+  "short_name": "幸運 777",
+  "description": "免安裝的輕量級 HTML5 三軸老虎機演示遊戲，使用虛擬代幣，僅供娛樂。",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0b1020",
+  "theme_color": "#0b1020",
+  "lang": "zh-Hant",
+  "icons": [
+    {
+      "src": "assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/og-image.jpg",
+      "sizes": "1200x630",
+      "type": "image/jpeg",
+      "purpose": "any"
+    }
+  ]
+}
