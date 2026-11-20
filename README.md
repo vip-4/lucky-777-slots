@@ -64,6 +64,21 @@ python -m http.server 8080
 | Vercel | `vercel.json` | Framework 選 Other |
 | GitHub Pages | `.github/workflows/deploy-pages.yml` | Settings → Pages → Source 選 **GitHub Actions**，推到 `main` 即自動部署 |
 
+### 以 Cloudflare Pages Direct Upload 部署
+
+`scripts/deploy_cloudflare.ps1` 使用 Cloudflare Pages Direct Upload API，无需 Git 整合、无需 Wrangler：
+
+```powershell
+$env:CF_API_TOKEN='你的_Cloudflare_API_Token'
+$env:CF_ACCOUNT_ID='你的_Account_ID'
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/deploy_cloudflare.ps1
+```
+
+- 流程：取得 upload-token → 上傳 asset（SHA256 前 32 碼作為 key）→ upsert-hashes → 建立 deployment。
+- `_headers` 必須以**附檔名的 multipart 檔案欄位**送出，否則 Cloudflare 會忽略自訂標頭（CSP、快取規則等）；腳本已處理。
+- 站台已套用 `_headers`：CSP、`X-Frame-Options: DENY`、`Permissions-Policy`，以及 `/assets/*` 一年不可變快取。
+- 此站為純靜態，**不需要 R2**；若要把 OG 圖或大檔放到 R2，需另外綁定自訂網域，反而增加延遲與成本。
+
 ### CI/CD 注意事項
 
 - Workflow 使用 `actions/deploy-pages`，依賴 OIDC（`id-token: write`），**不需要存放任何 API 金鑰**。
