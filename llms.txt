@@ -17,10 +17,10 @@
 
 ## 主要頁面
 
-- [首頁與遊戲本體](https://vip-4.github.io/lucky-777-slots/)：包含遊戲、玩法說明、賠率表與常見問題
-- [玩法說明](https://vip-4.github.io/lucky-777-slots/#how-to)：五步驟新手指南
-- [賠率表](https://vip-4.github.io/lucky-777-slots/#paytable)：中獎組合與倍數對照
-- [常見問題](https://vip-4.github.io/lucky-777-slots/#faq)：七組問答，結構化資料同步於 JSON-LD
+- [首頁與遊戲本體](https://lucky-777-slots.pages.dev/)：包含遊戲、玩法說明、賠率表與常見問題
+- [玩法說明](https://lucky-777-slots.pages.dev/#how-to)：五步驟新手指南
+- [賠率表](https://lucky-777-slots.pages.dev/#paytable)：中獎組合與倍數對照
+- [常見問題](https://lucky-777-slots.pages.dev/#faq)：七組問答，結構化資料同步於 JSON-LD
 
 ## 賠率表
 
