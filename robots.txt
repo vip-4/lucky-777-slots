@@ -1,26 +1,28 @@
+# Lucky 777 Slots — robots.txt
+# 允許所有爬蟲索引，並指向 Sitemap
+
 User-agent: *
 Allow: /
+Disallow: /node_modules/
+Disallow: /.git/
 
-# GEO：明確允許生成式引擎爬蟲讀取，利於 AI 摘要與引用
-User-agent: GPTBot
-Allow: /
-
-User-agent: OAI-SearchBot
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: anthropic-ai
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-User-agent: Google-Extended
+# 常見爬蟲個別設定（明確允許）
+User-agent: Googlebot
 Allow: /
 
 User-agent: Bingbot
 Allow: /
 
-Sitemap: https://lucky-777-slots.pages.dev/sitemap.xml
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+Sitemap: https://vip-4.github.io/lucky-777-slots/sitemap.xml
