@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#080c18"/>
+      <stop offset="0.55" stop-color="#111830"/>
+      <stop offset="1" stop-color="#080c18"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffe6a3"/>
+      <stop offset="0.5" stop-color="#f5c451"/>
+      <stop offset="1" stop-color="#c8912b"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.4" r="0.55">
+      <stop offset="0" stop-color="#f5c451" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#f5c451" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <!-- 外框 -->
+  <rect x="26" y="26" width="1148" height="578" rx="28" fill="none" stroke="url(#gold)" stroke-opacity="0.45" stroke-width="2"/>
+
+  <!-- 左側文字 -->
+  <text x="96" y="150" font-family="Segoe UI, Microsoft JhengHei, sans-serif" font-size="26" font-weight="700" letter-spacing="6" fill="#f5c451">LIGHTWEIGHT CASINO H5</text>
+  <text x="92" y="250" font-family="Segoe UI, Microsoft JhengHei, sans-serif" font-size="76" font-weight="900" fill="#ffffff">LUCKY <tspan fill="url(#gold)">777</tspan></text>
+  <text x="96" y="320" font-family="Segoe UI, Microsoft JhengHei, sans-serif" font-size="38" font-weight="600" fill="#ffe6a3">輕量級 HTML5 老虎機示範</text>
+  <text x="96" y="382" font-family="Segoe UI, Microsoft JhengHei, sans-serif" font-size="23" fill="#9aa6c4">零依賴 · 純前端 · SEO／GEO 就緒 · 一鍵靜態部署</text>
+
+  <g font-family="Segoe UI, Microsoft JhengHei, sans-serif" font-size="21" fill="#c9d3ee">
+    <text x="96" y="442">✓ 3 軸 1 線經典玩法</text>
+    <text x="96" y="480">✓ 支援桌機與手機、鍵盤與無障礙</text>
+    <text x="96" y="518">✓ 完整 meta 標籤與結構化資料</text>
+  </g>
+
+  <text x="96" y="574" font-family="Segoe UI, Microsoft JhengHei, sans-serif" font-size="18" fill="#6f7b9c">僅供娛樂與技術示範 · 虛擬籌碼 · 不涉及真實賭博</text>
+
+  <!-- 右側轉輪示意 -->
+  <g transform="translate(760, 150)">
+    <rect x="0" y="0" width="350" height="330" rx="26" fill="#0a1024" stroke="url(#gold)" stroke-opacity="0.5" stroke-width="2"/>
+    <g transform="translate(22, 24)">
+      <rect x="0"   y="0" width="96" height="130" rx="12" fill="#fdfbf4"/>
+      <rect x="108" y="0" width="96" height="130" rx="12" fill="#fdfbf4"/>
+      <rect x="216" y="0" width="96" height="130" rx="12" fill="#fdfbf4"/>
+      <text x="48"  y="86" font-size="60" text-anchor="middle">🍒</text>
+      <text x="156" y="86" font-size="60" text-anchor="middle">7️⃣</text>
+      <text x="264" y="86" font-size="60" text-anchor="middle">💎</text>
+    </g>
+    <text x="175" y="196" font-family="Segoe UI, sans-serif" font-size="18" text-anchor="middle" fill="#9aa6c4">中線為有效賠付線</text>
+    <rect x="22" y="222" width="306" height="62" rx="14" fill="url(#gold)"/>
+    <text x="175" y="262" font-family="Segoe UI, sans-serif" font-size="28" font-weight="800" text-anchor="middle" fill="#241804">旋轉 SPIN ↻</text>
+    <text x="175" y="312" font-family="Segoe UI, sans-serif" font-size="16" text-anchor="middle" fill="#6f7b9c">BALANCE 1,000　|　BET 10</text>
+  </g>
+</svg>
